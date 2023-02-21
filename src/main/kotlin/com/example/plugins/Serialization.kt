@@ -6,10 +6,10 @@ import io.ktor.server.application.*
 
 fun Application.configSerialization() {
 
-    HttpClient {
-        install(ContentNegotiation) {
-
-        }
-    }
+//    HttpClient {
+//        install(ContentNegotiation) {
+//
+//        }
+//    }
 
 }
