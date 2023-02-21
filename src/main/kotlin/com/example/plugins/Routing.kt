@@ -8,6 +8,8 @@ import io.ktor.server.response.*
 import io.ktor.server.application.*
 import io.ktor.server.application.*
 import io.ktor.server.application.*
+import io.ktor.server.request.*
+import kotlin.math.log
 
 fun Application.configureRouting() {
 
@@ -15,17 +17,16 @@ fun Application.configureRouting() {
 
 
         get("/") {
-            call.respondText("Hello ktor")
+            call.respondText("Hello ktor \n${call.request.headers}")
+            println("Headers: ${(call.request.headers.names())}")
+            println("User-Agent: ${(call.request.headers["User-Agent"])}")
+            println("Accept: ${(call.request.headers["Accept"])}")
+            println("Query Params: ${(call.request.queryParameters.names())}")
+            println("Name: ${(call.request.queryParameters["name"])}")
+            println("Email: ${(call.request.queryParameters["email"])}")
+            println("Age: ${(call.request.queryParameters["age"])}")
         }
 
 
-        get("/users") {
-            val listUserRemoteModel = mutableListOf<UserRemoteModel>()
-            listUserRemoteModel.add(UserRemoteModel("Shahzod1", 23))
-            listUserRemoteModel.add(UserRemoteModel("Shahzod2", 24))
-            listUserRemoteModel.add(UserRemoteModel("Shahzod3", 25))
-            listUserRemoteModel.add(UserRemoteModel("Shahzod4", 26))
-        }
     }
 }
-
