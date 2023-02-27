@@ -89,8 +89,9 @@ dependencies {
 
     implementation("org.postgresql:postgresql:42.5.1")
     implementation("com.zaxxer:HikariCP:5.0.1")
-
+    implementation ("org.owasp:java-file-io:1.0.0")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("org.ow2.util.file:file:2.1.0")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
