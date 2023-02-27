@@ -2,6 +2,7 @@
 
 package com.example.plugins
 
+import com.example.user.model.auth.LoginRemote
 import com.example.user.model.user.UserRemoteModel
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
@@ -26,7 +27,14 @@ fun Application.configureRouting() {
             println("Email: ${(call.request.queryParameters["email"])}")
             println("Age: ${(call.request.queryParameters["age"])}")
         }
-
-
+        get("/usersimages/{page}") {
+            val pageNumber = call.parameters["page"]
+            call.respondText("Response -> $pageNumber")
+        }
+        post("/login") {
+            val loginRemote = call.receive<LoginRemote>()
+            println(loginRemote.login)
+            call.respondText("Login...")
+        }
     }
 }

@@ -1,8 +1,7 @@
 package com.example.plugins
 
-import io.ktor.server.plugins.conditionalheaders.*
 import io.ktor.server.application.*
 
 fun Application.configureHTTP() {
-    install(ConditionalHeaders)
+//    install(ConditionalHeaders)
 }
